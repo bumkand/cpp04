@@ -6,7 +6,6 @@
 class Cat : public Animal
 {
 	public:
-		public:
 		Cat();
 		Cat(std::string _type);
 		Cat(const Cat& other);
