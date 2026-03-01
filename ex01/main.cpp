@@ -1,31 +1,76 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const Dog s("Dunco");
-	const Cat d("Micka");
-	Animal q = Dog("Zara");
-	std::cout << j->getType() << " " << std::endl;
-	j->makeSound();
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	std::cout << s.getType() << " " << std::endl;
-	s.makeSound();
-	std::cout << d.getType() << " " << std::endl;
-	d.makeSound();
-	std::cout << q.getType() << " " << std::endl;
-	q.makeSound();
+	Animal* animals[10];
+
+	for (int i = 0; i < 5; i++)
+		animals[i] = new Dog();
+	for (int i = 5; i < 10; i++)
+		animals[i] = new Cat();
+	std::cout << std::endl;
+
+	Dog* a = new Dog();
+	Dog* b = new Dog();
+
+	std::cout << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		a->setBrain(i, "Myslim");
+		b->getBrain(i);
+		std::cout << "[" << i << "] b dog [" << b->getBrain(i) << "]" << std::endl;
+	}
+	std::cout << std::endl;
+
+	for (int i = 0; i < 100; i++)
+	{
+		a->getBrain(i);
+		std::cout << "[" << i << "] a dog [" << a->getBrain(i) << "]" << std::endl;
+	}
+	std::cout << std::endl;
+
+	Dog* c = new Dog(*a);
+	for (int i = 0; i < 100; i++)
+	{
+		c->getBrain(i);
+		std::cout << "[" << i << "] c dog [" << c->getBrain(i) << "]" << std::endl;
+	}
+	std::cout << std::endl;
+
+	c->setBrain(29, "Som");
+	c->setBrain(98, "Som");
+	c->setBrain(45, "Som");
+	c->setBrain(70, "Som");
+	c->setBrain(203, "Som");
+
+	for (int i = 0; i < 100; i++)
+	{
+		c->getBrain(i);
+		std::cout << "[" << i << "] c dog [" << c->getBrain(i) << "]" << std::endl;
+	}
+	std::cout << std::endl;
+
+	
+
+	*b = *a;
+	for (int i = 0; i < 100; i++)
+	{
+		b->getBrain(i);
+		std::cout << "[" << i << "] b dog [" << b->getBrain(i) << "]" << std::endl;
+	}
+	std::cout << std::endl;
 
 
-	meta->makeSound();
+	delete a;
+	delete b;
+	delete c;
+	std::cout << std::endl;
 
-	delete meta;
-	delete j;
-	delete i;
+	for (int i = 0; i < 10; i++)
+		delete animals[i];
+	
 	return 0;
 }

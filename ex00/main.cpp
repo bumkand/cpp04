@@ -20,9 +20,8 @@ int main()
 	d.makeSound();
 	std::cout << q.getType() << " " << std::endl;
 	q.makeSound();
-
-
 	meta->makeSound();
+	std::cout << std::endl << std::endl;
 
 	delete meta;
 	delete j;

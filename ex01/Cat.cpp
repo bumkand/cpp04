@@ -48,3 +48,16 @@ void Cat::makeSound() const
 {
 	std::cout << "Mnaaaaauuauauau" << std::endl;
 }
+
+std::string Cat::getBrain(int i) const
+{
+	return brain->getIdeas(i);
+}
+
+void Cat::setBrain(int i, std::string idea)
+{
+	if (i >= 0 && i < 100)
+		brain->setIdeas(i, idea);
+	else
+		std::cout << "Out of bounds" << std::endl;
+}

@@ -1,18 +1,19 @@
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include <iostream>
 
 class Brain
 {
-	protected:
+	private:
 		std::string	ideas[100];
 	public:
 		Brain();
 		Brain(const Brain& other);
 		Brain& operator=(const Brain& other);
 		~Brain();
+		std::string getIdeas(int i) const;
+		void setIdeas(int i, std::string idea);
 };
 
 

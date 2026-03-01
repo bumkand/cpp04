@@ -29,3 +29,16 @@ Brain::~Brain()
 {
 	std::cout << "Brain destructor called" << std::endl;
 }
+
+std::string Brain::getIdeas(int i) const
+{
+	return ideas[i];
+}
+
+void Brain::setIdeas(int i, std::string idea)
+{
+	if (i >= 0 && i < 100)
+		ideas[i] = idea;
+	else
+		std::cout << "Out of bounds" << std::endl;
+}
